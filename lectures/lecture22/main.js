@@ -26,17 +26,26 @@ fetchCourses();
 
 function search() {
     console.log(data);
-    console.log(data[49].Title);
-    // go find the course stored at slot 49.
-    // then, go find the Instructors key.
-    // What's being held in Instructors is array
-    // with one object.
-    // Go into the first slot (slot 0) of Instructors
-    // and print the Name.
-    console.log(data[49].Instructors[0].Name);
 
-    // target the element with a class of '.courses'?
-    document.querySelector('.courses').innerHTML = data[49].Instructors[0].Name;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].Department === 'NM') {
+            let instructor = 'TBD';
+            if (data[i].Instructors.length > 0) {
+                instructor = data[i].Instructors[0].Name;
+            }
+            const template = `
+                <section class="course">
+                    <h2>${ data[i].Code }: ${ data[i].Title }</h2>
+                    <p>
+                        ${ data[i].Days } &bull; ${ data[i].Location.FullLocation }  &bull; ${ data[i].Hours } credit hour(s)
+                    </p>
+                    <p><strong>${ instructor }</strong></p>
+                </section>
+            `;
+            document.querySelector('.courses').insertAdjacentHTML(
+                'beforeend', template
+            );
+        }
+    }
 
-    const searchTerm = document.querySelector('#search_term').value;
 }
