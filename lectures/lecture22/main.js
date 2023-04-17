@@ -26,9 +26,10 @@ fetchCourses();
 
 function search() {
     console.log(data);
-
+    document.querySelector('.courses').innerHTML = '';
+    const searchTerm = document.querySelector('#search_term').value;
     for (let i = 0; i < data.length; i++) {
-        if (data[i].Department === 'NM') {
+        if (data[i].Department === searchTerm) {
             let instructor = 'TBD';
             if (data[i].Instructors.length > 0) {
                 instructor = data[i].Instructors[0].Name;
