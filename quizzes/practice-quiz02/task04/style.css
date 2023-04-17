@@ -1,0 +1,38 @@
+/******************/
+/* General Styles */
+/******************/
+
+body {
+   font-family: Arial;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    background-color: #CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in-out;
+}
+
+.one:hover {
+    background-color: rgb(194, 85, 237);
+    border-radius: 50%;
+}
+
+.two:hover {
+    background-color: hotpink;
+    border-radius: 50%;
+}
+
+.three:hover {
+    background-color: teal;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    column-gap: 30px;
+    justify-content: center;
+}
